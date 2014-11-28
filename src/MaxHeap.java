@@ -40,22 +40,22 @@ public class MaxHeap {
 	}
 
 	private void bubbleDown(Integer index) {
-		Integer idx_smaller, idx_right, idx_left;
+		Integer idx_larger, idx_right, idx_left;
 		Branch current = this.list.get(index);
 		Integer listSize = listLength();
 		while ((index + 1) * 2 <= listSize) { 
 			idx_left = this.getLeft(index);
 			idx_right = this.getRight(index);
 			if ((idx_right <= listSize - 1) && (this.list.get(idx_right).getValue() > (this.list.get(idx_left).getValue()))) {
-				idx_smaller = idx_right;
+				idx_larger = idx_right;
 			} else {
-				idx_smaller = idx_left;
+				idx_larger = idx_left;
 			}
-			if (current.getValue() > this.list.get(idx_smaller).getValue()) {
+			if (current.getValue() > this.list.get(idx_larger).getValue()) {
 				break;
 			}
-			this.list.set(index, this.list.get(idx_smaller));
-			index = idx_smaller;
+			this.list.set(index, this.list.get(idx_larger));
+			index = idx_larger;
 		}
 		this.list.set(index, current);
 	}
