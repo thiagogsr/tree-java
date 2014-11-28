@@ -46,7 +46,7 @@ public class MaxHeap {
 		while ((index + 1) * 2 <= listSize) { 
 			idx_left = this.getLeft(index);
 			idx_right = this.getRight(index);
-			if ((idx_right <= listSize - 1) && (this.list.get(idx_right).getValue() > (this.list.get(idx_left).getValue()))) {
+			if ((idx_right <= this.last()) && (this.list.get(idx_right).getValue() > (this.list.get(idx_left).getValue()))) {
 				idx_larger = idx_right;
 			} else {
 				idx_larger = idx_left;
