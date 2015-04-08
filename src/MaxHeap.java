@@ -9,7 +9,7 @@ public class MaxHeap {
 		this.list = new ArrayList<Branch>();
 	}
 	
-	public void insert(Integer value) {
+	public void insert(int value) {
 		this.list.add(new Branch(value));
 		this.bubbleUp(this.last());
 	}
@@ -28,8 +28,8 @@ public class MaxHeap {
 		return this.list.size();
 	}
 	
-	private void bubbleUp(Integer index) {
-		Integer idx_parent = this.getParent(index);
+	private void bubbleUp(int index) {
+		int idx_parent = this.getParent(index);
 		Branch current = this.list.get(index);
 		while (index > 0 && this.list.get(idx_parent).getValue() < current.getValue()) {
 			this.list.set(index, this.list.get(idx_parent));
@@ -39,10 +39,10 @@ public class MaxHeap {
 		this.list.set(index, current);
 	}
 
-	private void bubbleDown(Integer index) {
-		Integer idx_larger, idx_right, idx_left;
+	private void bubbleDown(int index) {
+		int idx_larger, idx_right, idx_left;
 		Branch current = this.list.get(index);
-		Integer listSize = listLength();
+		int listSize = listLength();
 		while ((index + 1) * 2 <= listSize) { 
 			idx_left = this.getLeft(index);
 			idx_right = this.getRight(index);
@@ -60,15 +60,15 @@ public class MaxHeap {
 		this.list.set(index, current);
 	}
 	
-	private Integer getParent(Integer index) {
+	private int getParent(int index) {
 		return (index + 1) / 2 - 1;
 	}
 	
-	private Integer getLeft(Integer index) {
+	private int getLeft(int index) {
 		return 2 * (index + 1) - 1;
 	}
 	
-	private Integer getRight(Integer index) {
+	private int getRight(int index) {
 		return this.getLeft(index) + 1;
 	}
 	
